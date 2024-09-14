@@ -11,6 +11,8 @@ import com.example.starter.repo.AddressRepo;
 import com.example.starter.repo.BlogRepo;
 import com.example.starter.repo.UserRepository;
 
+import jakarta.transaction.Transactional;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ public class UserServices {
 	@Autowired
 	BlogRepo blogRepo;
 	
+	@Transactional
 	 public List<UserWithoutPassword> getAll(){
 		 //return this.users.values();
 		 return this.userRepository.findAllProjectedBy();
